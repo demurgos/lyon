@@ -137,6 +137,15 @@ impl<'l> PathSlice<'l> {
         )
     }
 
+    pub fn cursor(&self) -> Cursor {
+        Cursor {
+            vertex: VertexId(0),
+            verb: 0,
+            first_vertex: VertexId(0),
+            first_verb: 0,
+        }
+    }
+
     pub fn points(&self) -> &[Point] { self.points }
 }
 
@@ -345,6 +354,10 @@ impl Cursor {
     where P : Into<PathSlice<'l>> {
         let path = path.into();
         event_at_cursor(self, &path.points, &path.verbs)
+    }
+
+    pub fn vertex_id(&self) -> VertexId {
+        self.vertex
     }
 }
 
