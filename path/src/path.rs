@@ -147,6 +147,10 @@ impl<'l> PathSlice<'l> {
     }
 
     pub fn points(&self) -> &[Point] { self.points }
+
+    pub fn is_empty(&self) -> bool {
+        self.verbs.is_empty()
+    }
 }
 
 impl<'l> IntoIterator for PathSlice<'l> {

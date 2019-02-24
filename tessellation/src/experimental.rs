@@ -1098,9 +1098,9 @@ impl TraversalBuilder {
     }
 
     fn set_path(&mut self, path: PathSlice) {
-        //if path.is_empty() {
-        //    return;
-        //}
+        if path.is_empty() {
+            return;
+        }
         let mut cursor = path.cursor();
         loop {
             let vertex_id = cursor.vertex_id();
