@@ -116,7 +116,7 @@ pub fn show_path(cmd: TessellateCmd, render_options: RenderCmd) {
                     println!(" -- running the experimental tessellator.");
 
                     let mut builder = Path::builder();
-                    for e in cmd.path.path_iter().flattened(options.tolerance) {
+                    for e in cmd.path.iter().flattened(options.tolerance) {
                         println!("{:?}", e);
                         builder.flat_event(e);
                     }
